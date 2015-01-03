@@ -43,9 +43,7 @@ def accPerspective(fovy, aspect, near, far, pixdx, pixdy, eyedx, eyedy, focus):
 
 def display():
     viewport = np.zeros(4)
-    print 'v'
     viewport = glGetIntegerv(GL_VIEWPORT, viewport)
-    print viewport
     glClear(GL_ACCUM_BUFFER_BIT)
     for jitter in xrange(ACSIZE):
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
