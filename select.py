@@ -47,7 +47,7 @@ def draw_view(x1, x2, y1, y2, z1, z2):
 def draw_scene():
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
-    gluPerspective(30.0, 4.0/3.0, 1.0, 100.0)
+    gluPerspective(30.0, 1.0, 1.0, 100.0)
     glMatrixMode(GL_MODELVIEW)
     glLoadIdentity()
     gluLookAt(7.5, 7.5, 12.5, 2.5, 2.5, -5.0, 0.0, 1.0, 0.0)
