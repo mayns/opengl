@@ -8,11 +8,15 @@ import Image
 
 __author__ = 'mayns'
 
-WHITE = [1, 1, 1]
-RED = [1, 0, 0]
-GREEN = [0, 1, 0]
-DARK_GREEN = [0, 0.5, 0]
-MAGENTA = [1, 0, 1]
+WHITE = [1, 1, 1, 1]
+RED = [1, 0, 0, 1]
+GREEN = [0, 1, 0, 1]
+DARK_GREEN = [0, 0.5, 0, 1]
+OPACITY_BLUE = [0, 0, 0.5, 0.4]
+OPACITY_RED = [1, 0, 0, 0.5]
+MAGENTA = [1, 0, 1, 1]
+CYAN = [0, 1, 1, 0.9]
+YELLOW = [1, 1, 0, 0.8]
 TEXTURE = 0
 
 
@@ -116,16 +120,21 @@ class Checkerboard(object):
 
 board = Checkerboard(8, 8)
 cam = Camera()
-balls = [Ball(1, GREEN, 7, 6, 1),
+balls = [Ball(1, OPACITY_BLUE, 7, 6, 1),
          Ball(1.5, MAGENTA, 6, 3, 4),
          Ball(0.4, WHITE, 5, 1, 7),
          Ball(0.15, RED, 10, 2, 3),
          Ball(0.15, RED, 13, 5, 6),
-         Ball(0.15, RED, 12, 7, 4),
+         Ball(0.15, OPACITY_RED, 12, 7, 4),
+         Ball(0.3, CYAN, 15, 1, 4),
+         Ball(0.2, YELLOW, 9, 8, 4),
          ]
 
 
 def init():
+    glEnable(GL_ALPHA_TEST)
+    glEnable(GL_BLEND)
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
     glEnable(GL_TEXTURE_2D)
     glEnable(GL_DEPTH_TEST)
     glLightfv(GL_LIGHT0, GL_DIFFUSE, WHITE)
