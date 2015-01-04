@@ -63,13 +63,17 @@ class Ball(object):
         self.y = h
 
     def update(self):
-        self.y += self.direction * 0.05
+        if self.r < 0.4:
+            self.y += self.direction * 0.1
+        else:
+            self.y += self.direction * 0.05
         if self.y > self.max_h:
             self.y = self.max_h
             self.direction = -1
         elif self.y < self.r:
             self.y = self.r
             self.direction = 1
+
         glPushMatrix()
         glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, self.c)
         glTranslated(self.x, self.y, self.z)
@@ -127,7 +131,7 @@ balls = [Ball(1, OPACITY_BLUE, 7, 6, 1),
          Ball(0.15, RED, 13, 5, 6),
          Ball(0.15, OPACITY_RED, 12, 7, 4),
          Ball(0.3, CYAN, 15, 1, 4),
-         Ball(0.2, YELLOW, 9, 8, 4),
+         Ball(0.2, YELLOW, 9, 6, 4),
          ]
 
 
