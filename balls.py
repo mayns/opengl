@@ -97,6 +97,7 @@ class Checkerboard(object):
         for x in xrange(self.w):
             for z in xrange(self.d):
                 glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, GREEN if (x + z) % 2 else DARK_GREEN)
+                glMaterialf(GL_FRONT, GL_SHININESS, 120)
                 glTexCoord2f(0, 0)
                 glVertex3d(x, 0, z)
                 glTexCoord2f(1, 0)
